@@ -21,6 +21,13 @@ git rm <file>
 
 Renaming files
 git mv <from> <to>
+
+unstaging a file which is staged
+git reset HEAD <filename>
+
+discard changes to a modified file
+git checkout -- <filename>
+
 ================================================================================
 DIFF and COMMIT
 ================================================================================
@@ -34,8 +41,11 @@ git diff -staged
 To commit the changes to staging area
 git commit -m ""
 
-Automcatically stage every tracked file and commit 
+Automatically stage every tracked file and commit 
 git commit -a -m ""
+
+Changing last commit
+git commit --amend
 ================================================================================
 BRANCH
 ================================================================================
@@ -59,4 +69,13 @@ $ git push origin develop
 
 
 
-
+git log
+Frequent options:
+ -p : shows the diff generated for each commit
+ -(n) : shows last n commits
+ --since=2.weeks
+ -stat : shows stats for each commit
+ --pretty=oneline : o/p contains each commit on single line
+ --pretty=format:"%h - %an, %ar : %s"
+ --pretty=format:"%h %s" --graph
+ 
