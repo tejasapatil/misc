@@ -1,0 +1,57 @@
+git init
+git add *.java
+git commit -m "initial commit"
+
+git clone git@github.com:tejasapatil/misc.git
+
+see the tracked (modified) and untracked files
+git status
+
+staging new (ie. untracked) files and modified files
+git add <filename>
+
+To commit the changes to staging area
+git commit -m ""
+
+Automcatically stage every tracked file and commit 
+git commit -a -m ""
+
+To see what is changed but NOT staged:
+git diff
+
+To see what is staged will go in the next commit
+git diff -cached
+git diff -staged
+
+
+Set the editor used to type the message during commit
+git config --global core.editor
+
+Removing files
+rm <file>
+git rm <file>
+================================================================================
+BRANCH
+================================================================================
+create a new branch
+-------------------
+git checkout -b <new branch> <existing base branch>
+
+Incorporating a finished feature
+--------------------------------
+git checkout develop
+Switched to branch 'develop'
+
+$ git merge --no-ff myfeature
+Updating ea1b82a..05e9557
+(Summary of changes)
+
+$ git branch -d myfeature
+Deleted branch myfeature (was 05e9557).
+
+$ git push origin develop
+
+Renaming files
+git mv <from> <to>
+
+
