@@ -1,21 +1,29 @@
+Set the editor used to type the message during commit
+git config --global core.editor
+
 git init
-git add *.java
-git commit -m "initial commit"
+
 
 git clone git@github.com:tejasapatil/misc.git
 
 see the tracked (modified) and untracked files
 git status
 
+================================================================================
+FILE OPS
+================================================================================
 staging new (ie. untracked) files and modified files
 git add <filename>
 
-To commit the changes to staging area
-git commit -m ""
+Removing files
+rm <file>
+git rm <file>
 
-Automcatically stage every tracked file and commit 
-git commit -a -m ""
-
+Renaming files
+git mv <from> <to>
+================================================================================
+DIFF and COMMIT
+================================================================================
 To see what is changed but NOT staged:
 git diff
 
@@ -23,13 +31,11 @@ To see what is staged will go in the next commit
 git diff -cached
 git diff -staged
 
+To commit the changes to staging area
+git commit -m ""
 
-Set the editor used to type the message during commit
-git config --global core.editor
-
-Removing files
-rm <file>
-git rm <file>
+Automcatically stage every tracked file and commit 
+git commit -a -m ""
 ================================================================================
 BRANCH
 ================================================================================
@@ -51,7 +57,6 @@ Deleted branch myfeature (was 05e9557).
 
 $ git push origin develop
 
-Renaming files
-git mv <from> <to>
+
 
 
