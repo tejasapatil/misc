@@ -107,4 +107,27 @@ git remote show origin
 Renaming and removing
 git remote rname <from> <to>
 git remote rm <remote name>
+
+================================================================================
+Tagging
+================================================================================
+list all the tags
+git tag
+git tag -l v1.1.*
+
+create an annotated tag
+git tag -a v1.1 -m ""
+
+Tag an old commit
+git tag -a v1.1 <commit checksum>
+
+create a lighweight tag
+git tag v1.1
+
+See info about a specific tag
+git show v1.1
+
+Other options:
+-s : create a signed annotated tag
+-v : verify a tag
 ================================================================================
