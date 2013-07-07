@@ -1,0 +1,29 @@
+=======================================================================================
+BUILD
+--------------
+git clone https://git-wip-us.apache.org/repos/asf/kafka.git kafka
+cd kafka
+echo $'\n'"addSbtPlugin(\"com.typesafe.sbteclipse\" % \"sbteclipse-plugin\" % \"2.2.0\")" >> project/plugins.sbt
+
+./sbt clean package assembly-package-dependency eclipse
+
+=======================================================================================
+ZOO INSPECTOR
+--------------
+export ZK_HOME=/home/tpatil/zookeeper-3.3.5
+cd $ZK_HOME/contrib/ZooInspector
+java -cp zookeeper-3.3.5-ZooInspector.jar:lib/*:$ZK_HOME/zookeeper-3.3.5.jar:$ZK_HOME/lib/* org.apache.zookeeper.inspector.ZooInspector
+
+=======================================================================================
+RUN KAFKA
+--------------
+rm -rf *.log* /tmp/zookeeper/* /home/tpatil/kafka/dataDir/* /tmp/kafka*
+
+bin/zookeeper-server-start.sh config/zookeeper.properties
+bin/kafka-server-start.sh config/server.properties
+bin/kafka-create-topic.sh --zookeeper localhost:2181 --replica 1 --partition 1 --topic test
+bin/kafka-list-topic.sh --zookeeper localhost:2181
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
+
+=======================================================================================
