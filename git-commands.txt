@@ -3,11 +3,15 @@ git config --global core.editor
 
 git init
 
-
 git clone git@github.com:tejasapatil/misc.git
 
-see the tracked (modified) and untracked files
-git status
+Some useful alias
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.unstage 'reset HEAD --'
+git config --global alias.last 'log -1 HEAD'
 
 ================================================================================
 FILE OPS
@@ -21,9 +25,19 @@ git rm <file>
 
 Renaming files
 git mv <from> <to>
+
+unstaging a file which is staged
+git reset HEAD <filename>
+
+discard changes to a modified file
+git checkout -- <filename>
+
 ================================================================================
-DIFF and COMMIT
+DIFF, COMMIT and LOG
 ================================================================================
+see the tracked (modified) and untracked files
+git status
+
 To see what is changed but NOT staged:
 git diff
 
@@ -34,8 +48,22 @@ git diff -staged
 To commit the changes to staging area
 git commit -m ""
 
-Automcatically stage every tracked file and commit 
+Automatically stage every tracked file and commit 
 git commit -a -m ""
+
+Changing last commit
+git commit --amend
+
+git log
+Frequent options:
+ -p : shows the diff generated for each commit
+ -(n) : shows last n commits
+ --since=2.weeks
+ -stat : shows stats for each commit
+ --pretty=oneline : o/p contains each commit on single line
+ --pretty=format:"%h - %an, %ar : %s"
+ --pretty=format:"%h %s" --graph
+ 
 ================================================================================
 BRANCH
 ================================================================================
@@ -57,6 +85,57 @@ Deleted branch myfeature (was 05e9557).
 
 $ git push origin develop
 
+================================================================================
+Working with remote servers
+================================================================================
+See the remote servers
+git remote
 
+See the remote server and the git urls
+git remote -v
 
+Add remote repos
+git remote add <short name> <url>
 
+Fetch a remote branch, will not merge the local changes
+git fetch <remote name>
+git fetch origin
+
+Fetched data from the server originally cloned from and tries to merge the changes
+git pull
+
+Push changes upstream
+git push <remote name> <branch name>
+git push origin master
+
+Show more info about a remote
+git remote show <remote name>
+git remote show origin
+
+Renaming and removing
+git remote rname <from> <to>
+git remote rm <remote name>
+
+================================================================================
+Tagging
+================================================================================
+list all the tags
+git tag
+git tag -l v1.1.*
+
+create an annotated tag
+git tag -a v1.1 -m ""
+
+Tag an old commit
+git tag -a v1.1 <commit checksum>
+
+create a lighweight tag
+git tag v1.1
+
+See info about a specific tag
+git show v1.1
+
+Other options:
+-s : create a signed annotated tag
+-v : verify a tag
+================================================================================
