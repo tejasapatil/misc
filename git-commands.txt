@@ -67,9 +67,10 @@ Frequent options:
 ================================================================================
 BRANCH
 ================================================================================
-create a new branch
--------------------
+create a new branch or switch to a existing branch
+---------------------------------------------------
 git checkout -b <new branch> <existing base branch>
+git checkout -b 0.8 origin/0.8
 
 Incorporating a finished feature
 --------------------------------
@@ -138,4 +139,13 @@ git show v1.1
 Other options:
 -s : create a signed annotated tag
 -v : verify a tag
+================================================================================
+STASH
+================================================================================
+git stash
+git stash list
+git stash apply
+
+creates a branch from the stashed changes
+git stash branch <my branch>
 ================================================================================
