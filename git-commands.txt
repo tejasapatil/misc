@@ -29,6 +29,9 @@ git mv <from> <to>
 unstaging a file which is staged
 git reset HEAD <filename>
 
+removes the changes in the local copy and restore the original copy
+git reset --hard HEAD
+
 discard changes to a modified file
 git checkout -- <filename>
 
@@ -67,6 +70,9 @@ Frequent options:
 ================================================================================
 BRANCH
 ================================================================================
+shows all checked-out branches and points to the current one
+git branch
+
 create a new branch or switch to a existing branch
 ---------------------------------------------------
 git checkout -b <new branch> <existing base branch>
