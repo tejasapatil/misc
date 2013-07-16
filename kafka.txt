@@ -17,7 +17,7 @@ java -cp zookeeper-3.3.5-ZooInspector.jar:lib/*:$ZK_HOME/zookeeper-3.3.5.jar:$ZK
 =======================================================================================
 RUN KAFKA
 --------------
-rm -rf *.log* /tmp/zookeeper/* dataDir/* /tmp/kafka*
+rm -rf *.log* dataDir/* kafka_metrics/* kafka-logs/*
 
 bin/zookeeper-server-start.sh config/zookeeper.properties
 bin/kafka-server-start.sh config/server.properties
