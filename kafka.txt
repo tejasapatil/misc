@@ -1,13 +1,4 @@
 =======================================================================================
-BUILD
---------------
-git clone https://git-wip-us.apache.org/repos/asf/kafka.git kafka
-cd kafka
-echo $'\n'"addSbtPlugin(\"com.typesafe.sbteclipse\" % \"sbteclipse-plugin\" % \"2.2.0\")" >> project/plugins.sbt
-
-./sbt clean package assembly-package-dependency eclipse
-
-=======================================================================================
 ZOO INSPECTOR
 --------------
 export ZK_HOME=/home/tpatil/zookeeper-3.3.5
@@ -31,3 +22,20 @@ bin/kafka-run-class.sh kafka.perf.ProducerPerformance --broker-list localhost:90
 bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group group1
 
 =======================================================================================
+BUILD
+--------------
+git clone https://git-wip-us.apache.org/repos/asf/kafka.git kafka
+cd kafka
+
+For using with Intellig IDEA:
+git checkout origin/0.7
+git checkout -b 0.7
+git checkout 68c84
+git checkout -b intellij
+./sbt clean update idea
+git checkout trunk
+./sbt update assembly-package-dependency
+
+For ECLIPSE:
+echo $'\n'"addSbtPlugin(\"com.typesafe.sbteclipse\" % \"sbteclipse-plugin\" % \"2.2.0\")" >> project/plugins.sbt
+./sbt clean package assembly-package-dependency eclipse
