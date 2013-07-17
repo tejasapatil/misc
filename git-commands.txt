@@ -34,6 +34,7 @@ git reset HEAD <filename>
 
 removes the changes in the local copy and restore the original copy
 git reset --hard HEAD
+git reset --hard HEAD~1   # revert to a one version before
 
 discard changes to a modified file
 git checkout -- <filename>
