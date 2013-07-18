@@ -21,6 +21,8 @@ bin/kafka-create-topic.sh --zookeeper localhost:2181 --replica 1 --partition 2 -
 bin/kafka-run-class.sh kafka.perf.ProducerPerformance --broker-list localhost:9092 --topics test --messages 9223372036854775807 --initial-message-id 0
 bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group group1
 
+bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic offsets --replication-factor 1 --partitions 5
+
 =======================================================================================
 BUILD
 --------------
