@@ -1,0 +1,77 @@
+[global_config]
+[keybindings]
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_10 = <Alt>0
+  broadcast_all = <Shift><Control>b
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  broadcast_off = <Shift><Control>h
+  switch_to_tab_1 = <Alt>1
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
+[profiles]
+  [[default]]
+    background_color = "#001b33"
+    cursor_blink = False
+    cursor_color = "#ff0f00"
+    foreground_color = "#ffffff"
+  [[def2]]
+    copy_on_selection = True
+    background_color = "#ffffff"
+    cursor_blink = False
+    cursor_color = "#ff0f00"
+    foreground_color = "#000000"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+  [[square]]
+    [[[child0]]]
+      position = 1920:0
+      type = Window
+      order = 0
+      parent = ""
+      size = 1920, 1174
+    [[[child1]]]
+      position = 960
+      type = HPaned
+      order = 0
+      parent = child0
+    [[[child2]]]
+      position = 587
+      type = VPaned
+      order = 0
+      parent = child1
+    [[[child5]]]
+      position = 587
+      type = VPaned
+      order = 1
+      parent = child1
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child2
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child5
+    [[[terminal6]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child5
+[plugins]
