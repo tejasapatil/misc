@@ -125,16 +125,21 @@ export GREP_COLOR='1;37;43'
 alias grep='grep --color=auto'
 
 function srch() {
-  grep -lri --include=*.scala $1 $PWD
+  grep -lnri --include=*.{scala,java} "$@" .
 }
 
 function srch2() {
-  grep -ri --include=*.scala $1 $PWD
+  grep -nri --include=*.{scala,java} "$@" .
 }
 
-function die() {
-  jps | grep -i $1 | awk '{print $1}' | xargs -I {} kill -9 {}
+function die() { 
+  jps | grep -i $1 | awk '{print $1}' | xargs -I {} kill -9 {}  
 }
+
+function die2() { 
+  jps | grep -i $1 | awk '{print $1}' | xargs -I {} kill -15 {}  
+}
+
 
 alias dieall="die consumer; die producer; die kafka; die quorum"
 alias com="./sbt package"
