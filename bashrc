@@ -143,8 +143,10 @@ function die2() {
 
 alias dieall="die consumer; die producer; die kafka; die quorum"
 alias com="./sbt package"
-alias rld="dieall; com; 1zk"
-alias 1zk="rm -rf *.log* /tmp/zookeeper/* /tmp/kafka_metrics* /tmp/kafka-logs*; bin/zookeeper-server-start.sh config/zookeeper.properties" 
+alias clearLogs="rm -rf *.log* /tmp/zookeeper/* /tmp/kafka_metrics* /tmp/kafka-logs*"
+alias zk="bin/zookeeper-server-start.sh config/zookeeper.properties"
+alias zkc="clearLogs; zk" 
+alias rld="dieall; com; zkc"
 alias 1bro="bin/kafka-server-start.sh config/server.properties"
 alias 1pro="bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replication-factor 1 --partitions 1; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test"
 alias 1con="bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group g1"
