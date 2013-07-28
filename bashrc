@@ -143,11 +143,11 @@ function die2() {
 
 alias dieall="die consumer; die producer; die kafka; die quorum"
 alias com="./sbt package"
-alias 1zk="rm -rf *.log* dataDir/* kafka_metrics* kafka-logs*;bin/zookeeper-server-start.sh config/zookeeper.properties" 
-alias 1bro="bin/kafka-server-start.sh config/server.properties"
 alias rld="dieall; com; 1zk"
-alias 1pro="bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic offsets --replication-factor 1 --partitions 2; bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replication-factor 1 --partitions 1;bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test"
-alias 1con="bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning"
+alias 1zk="rm -rf *.log* /tmp/zookeeper/* /tmp/kafka_metrics* /tmp/kafka-logs*; bin/zookeeper-server-start.sh config/zookeeper.properties" 
+alias 1bro="bin/kafka-server-start.sh config/server.properties"
+alias 1pro="bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replication-factor 1 --partitions 1; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test"
+alias 1con="bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group g1"
 
 function 1yarn {
   export HADOOP_HOME=/home/tejas/Desktop/apache/hadoop-2.0.3-alpha
