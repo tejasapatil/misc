@@ -147,9 +147,15 @@ alias clearLogs="rm -rf *.log* /tmp/zookeeper/* /tmp/kafka_metrics* /tmp/kafka-l
 alias zk="bin/zookeeper-server-start.sh config/zookeeper.properties"
 alias zkc="clearLogs; zk" 
 alias rld="dieall; com; zkc"
-alias 1bro="bin/kafka-server-start.sh config/server.properties"
-alias 1pro="bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replication-factor 1 --partitions 1; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test"
-alias 1con="bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group g1"
+alias zkins="export ZK_HOME=/home/tpatil/zookeeper-3.3.5; cd $ZK_HOME/contrib/ZooInspector; java -cp zookeeper-3.3.5-ZooInspector.jar:lib/*:$ZK_HOME/zookeeper-3.3.5.jar:$ZK_HOME/lib/* org.apache.zookeeper.inspector.ZooInspector"
+
+alias 1bro="bin/kafka-server-start.sh ../config/server.properties"
+alias 2bro="JMX_PORT=9997 bin/kafka-server-start.sh ../config/server1.properties"
+alias 3bro="JMX_PORT=9998 bin/kafka-server-start.sh ../config/server2.properties"
+
+alias pro="bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replication-factor 2 --partitions 6; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test"
+alias con="bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group 123 --from-beginning"
+alias rld="dieall; com; 1zk"
 
 function 1yarn {
   export HADOOP_HOME=/home/tejas/Desktop/apache/hadoop-2.0.3-alpha
