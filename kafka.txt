@@ -23,6 +23,8 @@ bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replicati
 bin/kafka-run-class.sh kafka.perf.ProducerPerformance --broker-list localhost:9092 --topics test --messages 9223372036854775807 --initial-message-id 0
 bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group group1
 
+bin/kafka-run-class.sh kafka.tools.DumpLogSegments --print-data-log --files /tmp/kafka-logs/__consumer__offsets-1/00000000000000000000.log
+bin/kafka-topics.sh --zookeeper localhost:2181 --describe
 =======================================================================================
 BUILD
 --------------
