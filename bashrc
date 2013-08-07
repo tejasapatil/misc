@@ -140,6 +140,8 @@ function die2() {
   jps | grep -i $1 | awk '{print $1}' | xargs -I {} kill -15 {}  
 }
 
+alias ..="cd ../"
+alias ...="cd ../../"
 alias cdsrc="cd core/src/main/scala/kafka"
 alias dieall="die consumer; die producer; die kafka; die quorum"
 alias com="./sbt package"
