@@ -151,9 +151,9 @@ alias zkc="clearLogs; zk"
 alias rld="dieall; com; zkc"
 alias zkins="export ZK_HOME=/home/tpatil/zookeeper-3.3.5; cd $ZK_HOME/contrib/ZooInspector; java -cp zookeeper-3.3.5-ZooInspector.jar:lib/*:$ZK_HOME/zookeeper-3.3.5.jar:$ZK_HOME/lib/* org.apache.zookeeper.inspector.ZooInspector"
 
-alias 1bro="bin/kafka-server-start.sh ../config/server.properties"
-alias 2bro="JMX_PORT=9997 bin/kafka-server-start.sh ../config/server1.properties"
-alias 3bro="JMX_PORT=9998 bin/kafka-server-start.sh ../config/server2.properties"
+alias 0bro="bin/kafka-server-start.sh config/server.properties"
+alias 1bro="JMX_PORT=9997 bin/kafka-server-start.sh config/server1.properties"
+alias 2bro="JMX_PORT=9998 bin/kafka-server-start.sh config/server2.properties"
 
 alias pro="bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replication-factor 2 --partitions 6; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test"
 alias con="bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group 123 --from-beginning"
