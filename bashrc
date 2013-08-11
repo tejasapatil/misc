@@ -157,7 +157,6 @@ alias 2bro="JMX_PORT=9998 bin/kafka-server-start.sh config/server2.properties"
 
 alias pro="bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replication-factor 1 --partitions 2; bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test"
 alias con="bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group 123 --from-beginning"
-alias rld="dieall; com; 1zk"
 
 function 1yarn {
   export HADOOP_HOME=/home/tejas/Desktop/apache/hadoop-2.0.3-alpha
