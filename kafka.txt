@@ -23,8 +23,15 @@ bin/kafka-topics.sh --zookeeper localhost:2181 --create --topic test --replicati
 bin/kafka-run-class.sh kafka.perf.ProducerPerformance --broker-list localhost:9092 --topics test --messages 9223372036854775807 --initial-message-id 0
 bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --group group1
 
-bin/kafka-run-class.sh kafka.tools.DumpLogSegments --print-data-log --files /tmp/kafka-logs/__consumer__offsets-1/00000000000000000000.log
+bin/kafka-run-class.sh kafka.tools.DumpLogSegments --p6 print-data-log --files /tmp/kafka-logs/__consumer__offsets-1/00000000000000000000.log
 bin/kafka-topics.sh --zookeeper localhost:2181 --describe
+
+Junits:
+./sbt
+project core
+set every traceLevel := 10
+test-only kafka.consumer.ZookeeperConsumerConnectorTest
+
 =======================================================================================
 BUILD
 --------------
@@ -44,7 +51,7 @@ For ECLIPSE:
 echo $'\n'"addSbtPlugin(\"com.typesafe.sbteclipse\" % \"sbteclipse-plugin\" % \"2.2.0\")" >> project/plugins.sbt
 ./sbt clean package assembly-package-dependency eclipse
 =====================================================================================
-Your setup:
+My setup:
 https://help.github.com/articles/fork-a-repo
 http://www.lornajane.net/posts/2012/do-open-source-with-git-and-github
 
