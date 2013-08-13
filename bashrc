@@ -124,6 +124,10 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 export GREP_COLOR='1;37;43'
 alias grep='grep --color=auto'
 
+function google() {
+  links www.google.com/search?q=$@
+}
+
 function srch() {
   grep -nri --include=*.{scala,java} "$@" .
 }
