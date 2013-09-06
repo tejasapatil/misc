@@ -38,6 +38,9 @@ BUILD
 git clone https://git-wip-us.apache.org/repos/asf/kafka.git kafka
 cd kafka
 
+sync up with upstream
+git fetch origin -v; git fetch upstream -v; git merge upstream/trunk
+
 For using with Intellig IDEA:
 git checkout origin/0.7
 git checkout -b 0.7
