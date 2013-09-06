@@ -17,6 +17,7 @@ git config --global alias.last 'log -1 HEAD'
 
 Generating SSH keys:
 https://help.github.com/articles/generating-ssh-keys
+http://eagain.net/articles/git-for-computer-scientists/
 
 ================================================================================
 FILE OPS
