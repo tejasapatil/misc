@@ -129,6 +129,11 @@ Renaming and removing
 git remote rname <from> <to>
 git remote rm <remote name>
 
+Update local brnach with the remote branch
+git fetch origin -v
+git fetch upstream -v
+git merge upstream/<name of branch>
+git push
 ================================================================================
 Tagging
 ================================================================================
